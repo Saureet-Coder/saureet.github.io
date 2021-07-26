@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <script src="//unpkg.com/alpinejs" defer></script>
+    <title>Top 10 Best Harry Potter Characters</title>
+</head>
+<body class="">
+
+    
+    <h1 class="text-5xl text-center mt-6 font-bold mb-24">Top 10 Best Harry Potter Characters</h1>
+    <div class="text-2xl">This is the top 10 Harry Potter Characters ranked here in the Wizarding War. This is a article on Harry Potter Most Popular , Enjoyable , Handsome And Beautiful , Kind Characters. These are 10 Characters some of whoose death are very . These character have enjoyable moments. They have  brave fights too.</div>
+    <div class="text-6xl mt-7">LET'S GET STARTED</div>
+    <div class=" " x-data="data()">
+        <div class="mx-auto w-2/3 ">
+        <div class="sm:w-full md:w-full lg:w-full">
+        <template x-for="character in characters">
+            <div class="mt-24">
+                <div class="text-4xl font-bold" x-text="character.name"></div>
+                <img :src="character.image" alt="" class="w-96 mt-7">
+                <div class="font-bold mt-8 text-2xl" x-text="character.fullName"></div>
+                <div class="text-xl mt-4" x-html="character.body">
+
+                </div>
+                    <div class="text-2xl font-bold space-y-24 mt-7" x-text="character.deathTime">
+                        
+                    </div>
+                      <div class="text-2xl font-bold space-y-24 mt-7 mb-7" x-text="character.deathCause"></div>
+                    </div>
+           
+        </template>
+        </div>
+        <hr class="border">
+        <div class="mt-4">
+            <h2 class="text-xl font-semibold" ><span class="" x-text="comments.length"></span> Comment(s)</h2>
+            
+            <button class="bg-red-600 text-white font-semibold p-3 mt-4" @click="showCommentForm = true">Add Comment</button>
+            <div class="bg-gray-200 p-4 mt-4 space-y-3" x-show="showCommentForm">
+                <input x-model="commenterName" type="text" placeholder="Your Name..." class="border border-black w-1/2 p-2">
+            <textarea x-model="commentBody" class="border border-black w-full h-28 focus:outline-none p-2" placeholder="Add your comment here..."></textarea>
+            <button class="bg-red-500 text-white p-2" @click="addComment()">Submit</button>
+            
+            </div>
+            <template x-for="comment in comments">
+                <div class="mt-4 border-l-2 flex justify-between mb-4">
+                    <div class="mt-4 text-md  ml-4 w-2/3" x-text="comment.chat">
+                       </div>
+                    <div class="w-1/3 ml-24  ">
+                    <div class="text-red-500" x-text="comment.fullname"> </div>
+                    <div class="text-sm" x-text="convert(comment.datetime)"></div>    
+                    </div>
+                </div>
+            </template>
+            
+        </div>
+    
+        </div>
+        
+        
+    </div>
+<div class="h-96"></div>
+    <script>
+        function data(){
+            return{
+
+
+
+                commenterName : '',
+                showCommentForm: false,
+                commentBody: '',
+                comments: [
+                   
+                    
+                ],
+                addComment(){
+
+                    if(this.commentBody.trim() == '' || this.commenterName.trim() == ''){
+                        alert("Please make sure you insert you name or comment")
+                        return false;
+                    }
+
+                   
+                    var newComment = {
+                        fullname: this.commenterName,
+                        chat: this.commentBody,
+                        datetime: Date.now(),
+                    };
+                    this.comments.push(newComment);
+                    
+                    this.showCommentForm = false;
+                    this.commenterName = "";
+                    this.commentBody = "";
+                },
+
+                convert(date){
+                    var utc= new Date(date);
+                    return `${utc.getHours()}:${utc.getMinutes()} | ${utc.getDate()}-${utc.getMonth()}-${utc.getFullYear()}`;
+                },
+                
+
+                characters: [
+                    {
+                        name: '10. Remus Lupin',
+                        image: 'https://cdn.discordapp.com/attachments/835094861635387421/860224206087127070/unknown.png',
+                        fullName: 'Name - Remus John Lupin',
+                        body: `
+                        Remus Lupin is first introduced as Harry's Defense Against the Dark Arts professor in the third <br> book(Harry Potter And The Prisoner Of Azkaban),  but Lupin becomes a father figure to Harry. <br>
+
+            Lupin was bitten by a werewolf named GreyBack when he was younger causing him to transform <br> each full moon, but he found solace in his childhood friends, James Potter, Sirius Black, and Peter <br> Pettigrew, who accepted him and helped him during his time at Hogwarts. 
+            
+            In his adult life, Lupin <br> was a leading member of the Order of the Phoenix, and he fell in love with and married <br> fellow member Tonks. 
+                        `,
+                        deathTime: 'Time of Death: "Harry Potter and the Deathly Hallows " ',
+                        deathCause: "Cause of Death: Lupin died during the Battle of Hogwarts. It's not shown in book, but it's implied that the Death Eater Antonin Dolohov killed him in a duel. ",
+                    },
+                    {
+                        name: '9. Sirius Black',
+                        image: 'https://media.discordapp.net/attachments/835094861635387421/861290187878563840/unknown.png?width=437&height=422',
+                        fullName: 'Name - Sirius Black III ',
+                        body: `
+                        Sirius Black also known as padfoot is a brave , kind and marvellous character in Harry Potter series. <br> He was the godfather of Harry and was a great one. He is full of joke and carefull towards Harry. <br> He was an animagus. He was the one who gave Harry a international broom named firebolt and gave <br> Ron an owl.
+          He was the best ever friend of Harry Potter's father James Potter in his Hogwarts School life <br> and afterwards. He was a great social worker for house elves. He gave Harry nice advice to protect him. <br> He was a brave and true Griffindor . He was an exception in his family as his full family was Voldemort's <br> supporter and belongs to Slytherin House. But he himself in his family was a enemy of Voldemort and <br> Gryffindor.
+                        `,
+                        deathTime: '  Time of Death: "Harry Potter and the Order Of The Phoenix "  ',
+                        deathCause: "Cause of Death: Sirius died in the battle in the department of mysteries. He was killed by his sister Bellatrix Lestrange. ",
+                    },
+                    {
+                        name: '8. Albus Dumbledore',
+                        image: 'https://cdn.discordapp.com/attachments/835094861635387421/861302594042986516/unknown.png',
+                        fullName: 'Name - Albus Percival Wulfric Brian Dumbledore',
+                        body: `
+                        Albus Dumbledore, the greatest sorcerer of the World only one whom Lord Voldemort aka Tom Riddle <br> ever feared is neither bad nor good. He was a bad wizard who opposes muggles and supports Muggle  <br> Born Rights. He was once a best friend of Gellert Grindelward the most evil sorcerer of the world just after <br> Tom Riddle. At the age of 18 after his sister's death by Grindelwald. He realizes that power is his weakness <br> and his life leading and personality changed. The rest of his 99 years he was a Muggle Born Rights <br> supporter and the most greatest sorcerer in the World on basis of kindness and abilty. He was the <br> only person who gave Harry advice after Sirius's death.Without him Voldemort would never be <br> killed as no one knows about Hocruxes which he guessed and it became right. 
+       
+                        `,
+                        deathTime: 'Time of Death: "Harry Potter and the Half Blood Prince"  ',
+                        deathCause: "Cause of Death: Severus Snape killed Dumbledore as Dumbledore told him to do. Dumbledore told Snape to kill him as Draco Malfoy was ordered to kill Dumbledore by Tom Riddle. Dumbledore dont want Draco Malfoy's soul to be broke so he told Snape to do his task. Though he was already dying. Dumbledore's death became a very important loss in Wizarding World more for the Golden Trio (Harry,Hermione,Ron). ",
+                    },
+                    {
+                        name: '7.  Severus Snape',
+                        image: 'https://media.discordapp.net/attachments/835094861635387421/861672161369915432/unknown.png?width=516&height=422',
+                        fullName: 'Name - Severus Snape',
+                        body: `
+                        Severus Snape , the most detailed and best character in the Harry Potter character. He was <br> the potions and Defence Against the Dark Arts teacher in Hogwarts.  He was known as  loyal <br> to Voldemort but after that he was proved that he was always Dumbledore Agent and loyal to <br> him when Voldemort started to threaten Lily Potter the only person he loved most of his life. <br> Severus protected Harry to fullfill the revenge of Lily's death. Snape kiled Dumbledore but <br> Dumbledore told Snape to kill him to prevent Malfoy being a death eater. All thought <br> Snape rejoined Death Eater and killed Dumbledore. He lost all his good friends. He was <br> surrounded by evil people capable of so much death. Snape died bravely by Voldemort.
+          
+                        `,
+                        deathTime: 'Time of Death: "Harry Potter and the Deathly Hallows "  ',
+                        deathCause: " Cause of Death: Nagini the snake killed Snape. Voldemort told Nagini killed Snape as Voldemort thought Snape was the true master of Elder Wand. Snape died Bravely and gave Harry his memory that prove Snape that he was living 50 years of mischievous life and protected Harry. ",
+                    },
+                    {
+                        name: '6. Neville Longbottom',
+                        image: 'https://media.discordapp.net/attachments/835094861635387421/861677804436979732/unknown.png?width=444&height=422',
+                        fullName: 'Name - Neville Longbottom',
+                        body: `
+                        Neville Longbottom was a forgetfull boy in first year and afterwards. This character was <br> a great friend. He was the leader of Dumbledore Army in 7th year. He led a group in <br> the Battle of Hogwarts. He destroyed the last Hocrux Nagini that killed Voldemort <br> forever. Without killing Nagini Voldemort will never be dead.
+                        `,
+                        deathTime: ' Time of Death: "Not died "  ',
+                        deathCause: "Future: Hogwarts Herbology Proffesor. ",
+                    },
+                    {
+                        name: '5. Ginny Weasley',
+                        image: 'https://media.discordapp.net/attachments/835094861635387421/865659677273227274/unknown.png?width=343&height=421',
+                        fullName: 'Name - Ginevra Molly Weasley(known as Ginny Weasley)',
+                        body: `
+                        Ginny Weasley was a year younger than Harry Potter. She is a <br> attractive, powerfull and skilled witch. She is the girlfriend cum <br> wife of Harry Potter. Ginny's best spell is a Bat Bogey Hex. She <br> was a part of Slug Club and Dumbledore Army and later Order <br> Of Phoenix. She is a quidditch player in Gryffindor . She mastered <br> in both chaser and seeker skills. She became a quidditch player <br> for England after Hogwarts . Then she took the job for editing the news page <br> in daily prophet.
+          
+                        `,
+                        deathTime: 'Time of Death: "Not died" ',
+                        deathCause: "Future: She never died during battle. Although J.K Rowling tweeted that Ginny's death happened in Ramadi tragically, Iraq after a firefight with Islamic State insurgents  ",
+                    },
+                    {
+                        name: '4. Ronald Weasley',
+                        image: 'https://cdn.discordapp.com/attachments/835094861635387421/867024127536922645/unknown.png',
+                        fullName: 'Name - Ronald Bilius Weasley',
+                        body: `
+                        Ronald Weasley was a great character who knows many things <br> about wizarding world. He was a skilled wizard. He only suffers <br> from nerves. He was nervous when there are many audience.<br> He was  the one of the second youngest weasley next to ginny. <br> He was a great best friend of Harry Potter and the boyfriend of <br> Hermione Granger. He was one of the six in the world to know <br> about hocruxes and Harry's prophecy.
+                        `,
+                        deathTime: 'Time of Death: "Not died in books" ',
+                        deathCause: "Future: Ron was one of the few people who helped the ministry to capture death eaters after death of Voldemort. He became an auror with Harry . He later married to Hermione and have two children:- Rose And Hugo Weasley. Then he leave Auror and assisted George Weasley in Weasleys Wizard Wheezes.",
+                    },
+                    {
+                        name: '3. Hermione Granger',
+                        image: 'https://cdn.discordapp.com/attachments/835094861635387421/867028520546074684/unknown.png',
+                        fullName: 'Name - Hermione Jean Granger',
+                        body: `
+                        Hermione was a great and powerfull and very clever witch. She became first in every class. <br> She was a best friend of Harry Potter. She accompanied Harry in all events- to destroy philosopher's <br> stone , rescue Sirius , helped Harry to win Triwizard Tournaments , Dumbledore Army actual founder , <br> Destroying 7 hocruxes. She saved Harry's and Ron's life many times. She got all O.W.Ls. This <br> character killed and stunned many people. She was a muggle-born. Later she became a member of <br> Order Of Phoenix. 
+                        `,
+                        deathTime: 'Time of Death: "Not died in books." ',
+                        deathCause: "Future: She continued her path in S.P.E.W in Department for the Regulation and Control of Magical Creatures. Then after the retirement of Kingsley Shacklebolt, she became the Minister For Magic. She married to Ron and they have 2 children (Rose And Hugo Granger-Weasley) ",
+                    },
+                    {
+                        name: '2. Harry Potter',
+                        image: 'https://cdn.discordapp.com/attachments/835094861635387421/867032179509559306/unknown.png',
+                        fullName: 'Name - Harry James Potter',
+                        body: `
+                        Harry Potter the main Character who was a orphan from the age of 1. He was brought by his <br> uncle and aunt Dursley. The Dursleys treat him very badly as slaves . He was unwelcome in <br> their house. He was he only wizard who survived the killing curse <b><i>Avada Kedabra</i></b> twice. <br> He is the only person to unite the three deathly Hallows. He was a great man. He is the <br> only youngest student to be selected in the Quidditch Team without any try-out and he <br> was selected in 1st year. He was a seeker and a leading memeber and founder of the<br> Dumbledore Army. He was the killer of Lord Voldemort and destroyer of The <br>Riddle Diary and Ravenclaw's Diadem
+                        `,
+                        deathTime: 'Time of Death: "Not died in Books" ',
+                        deathCause: "Future: He became the head of Auror office. He married to Ginny Weasley and have three children named James Sirius Potter , Albus Severus Potter, Lily Luna Potter ",
+                    },
+                    {
+                        name: '1. Fred Weasley',
+                        image: 'https://cdn.discordapp.com/attachments/835094861635387421/867434049772716032/unknown.png?width=343&height=42',
+                        fullName: 'Name - Fredrick Gideon Weasley',
+                        body: `
+                        Fred Weasley was a very jolly and jokefull character. His twins name was George Weasley. Fred was <br> born in 1st April. He was a joke shop runner named Weasley's Wizard Wheezes. Their product <br> <i>Peruvian Dakness Powder & Shield Accessories</i> were highly valuable to the Ministry People. <br> According to Ron their brother, he said that Fred And George were just raking Galleons. Fred was <br> the one who makes jokes in some cases that decreases tensions. He is ranked the first for his <br> generousity and kindness
+                        `,
+                        deathTime: 'Time of Death: "Harry Potter and the Deathly Hallows " ',
+                        deathCause: "Cause of Death: Percy made a joke. Fred was laughing. In that momment the wall collapsed and fall on Fred which lead to his death while laughing. The ghost of his last laugh still etched upon his face. A tragic death . This was caused by Rookwood who was then stunned by Aberforth Dumbledore and tortured by Percy. Percy can never forgive himself. ",
+                    },
+                ],
+                
+            };
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- https://youtu.be/NGqZRfsG5hc -->
